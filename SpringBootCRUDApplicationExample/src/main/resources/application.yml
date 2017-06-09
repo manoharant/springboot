@@ -24,8 +24,8 @@ spring:
 datasource:
   sampleapp:
     url: jdbc:mysql://localhost:3306/websystique
-    username: myuser
-    password: mypassword
+    username: root
+    password: root
     driverClassName: com.mysql.jdbc.Driver
     defaultSchema:
     maxPoolSize: 20
