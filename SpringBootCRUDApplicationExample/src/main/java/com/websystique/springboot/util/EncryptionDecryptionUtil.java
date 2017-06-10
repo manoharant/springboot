@@ -9,7 +9,7 @@
  *
  * History: 11.04.2012 (Manoharan Thambi) Creation
  */
-package com.websystique.springboot.model;
+package com.websystique.springboot.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
