@@ -47,17 +47,17 @@ angular.module('crudApp').factory('CustomerService',
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while loading user with id :'+id);
+                            console.error('Error while loading customer with id :'+id);
                             deferred.reject(errResponse);
                         }
                     );
                 return deferred.promise;
             }
 
-            function createCustomer(user) {
+            function createCustomer(customer) {
                 console.log('Creating Customer');
                 var deferred = $q.defer();
-                $http.post(urls.CUSTOMER_SERVICE_API, user)
+                $http.post(urls.CUSTOMER_SERVICE_API, customer)
                     .then(
                         function (response) {
                             loadAllCustomers();
@@ -71,10 +71,10 @@ angular.module('crudApp').factory('CustomerService',
                 return deferred.promise;
             }
 
-            function updateCustomer(user, id) {
+            function updateCustomer(customer, id) {
                 console.log('Updating Customer with id '+id);
                 var deferred = $q.defer();
-                $http.put(urls.CUSTOMER_SERVICE_API + id, user)
+                $http.put(urls.CUSTOMER_SERVICE_API + id, customer)
                     .then(
                         function (response) {
                             loadAllCustomers();
