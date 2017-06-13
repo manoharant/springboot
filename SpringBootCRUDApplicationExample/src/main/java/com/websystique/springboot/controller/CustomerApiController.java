@@ -33,7 +33,7 @@ public class CustomerApiController {
 	// Customerss---------------------------------------------
 
 	@RequestMapping(value = "/customer/", method = RequestMethod.GET)
-	public ResponseEntity<List<Customers>> listAllCustomerss() {
+	public ResponseEntity<List<Customers>> listAllCustomers() {
 		List<Customers> customers = customerService.findAllCustomers();
 		if (customers.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);

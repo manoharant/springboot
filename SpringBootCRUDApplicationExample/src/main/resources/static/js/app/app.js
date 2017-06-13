@@ -11,7 +11,9 @@ app.config([
 		'$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider) {
 			console.log('inside state.......');
-			$stateProvider.state(
+			$stateProvider
+
+			.state(
 					'home',
 					{
 						url : '/',
@@ -27,11 +29,13 @@ app.config([
 								return deferred.promise;
 							}
 						}
-					}).state(
+					})
+
+			.state(
 					'cust',
 					{
 						url : '/',
-						templateUrl : 'customers/customerlist',
+						templateUrl : 'customers/custlist',
 						controller : 'CustomerController',
 						controllerAs : 'ctrl',
 						resolve : {

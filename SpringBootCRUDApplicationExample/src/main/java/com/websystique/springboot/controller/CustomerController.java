@@ -11,8 +11,8 @@ public class CustomerController {
 	@RequestMapping("/cust")
 	String cust(ModelMap modal) {
 		System.out.println("inside cust list");
-		modal.addAttribute("title", "CRUD Example");
-		return "customer";
+		modal.addAttribute("title", "CRUD cust Example");
+		return "cust";
 	}
 	@RequestMapping("/customers/{page}")
 	String partialHandler(@PathVariable("page") final String page) {
