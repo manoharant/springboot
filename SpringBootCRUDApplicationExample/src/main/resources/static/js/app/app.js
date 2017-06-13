@@ -10,7 +10,7 @@ app.config([
 		'$stateProvider',
 		'$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider) {
-
+			console.log('inside state.......');
 			$stateProvider.state(
 					'home',
 					{
@@ -30,15 +30,15 @@ app.config([
 					}).state(
 					'cust',
 					{
-						url : '/customer',
-						templateUrl : 'partials/customerlist',
+						url : '/',
+						templateUrl : 'customers/customerlist',
 						controller : 'CustomerController',
 						controllerAs : 'ctrl',
 						resolve : {
-							users : function($q, CustomerService) {
+							customers : function($q, CustomerService) {
 								console.log('Load all customers');
 								var deferred = $q.defer();
-								UserService.loadAllCustomers().then(
+								CustomerService.loadAllCustomers().then(
 										deferred.resolve, deferred.resolve);
 								return deferred.promise;
 							}

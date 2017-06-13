@@ -16,17 +16,17 @@ angular.module('crudApp').factory('CustomerService',
             return factory;
 
             function loadAll() {
-                console.log('Fetching all users');
+                console.log('Fetching all customers');
                 var deferred = $q.defer();
                 $http.get(urls.CUSTOMER_SERVICE_API)
                     .then(
                         function (response) {
-                            console.log('Fetched successfully all users');
-                            $localStorage.users = response.data;
+                            console.log('Fetched successfully all customers');
+                            $localStorage.customers = response.data;
                             deferred.resolve(response);
                         },
                         function (errResponse) {
-                            console.error('Error while loading users');
+                            console.error('Error while loading customers');
                             deferred.reject(errResponse);
                         }
                     );
@@ -34,7 +34,7 @@ angular.module('crudApp').factory('CustomerService',
             }
 
             function getAll(){
-                return $localStorage.users;
+                return $localStorage.customers;
             }
 
             function getCustomer(id) {
@@ -47,17 +47,17 @@ angular.module('crudApp').factory('CustomerService',
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while loading user with id :'+id);
+                            console.error('Error while loading customer with id :'+id);
                             deferred.reject(errResponse);
                         }
                     );
                 return deferred.promise;
             }
 
-            function createCustomer(user) {
+            function createCustomer(customer) {
                 console.log('Creating Customer');
                 var deferred = $q.defer();
-                $http.post(urls.CUSTOMER_SERVICE_API, user)
+                $http.post(urls.CUSTOMER_SERVICE_API, customer)
                     .then(
                         function (response) {
                             loadAll();
@@ -71,10 +71,10 @@ angular.module('crudApp').factory('CustomerService',
                 return deferred.promise;
             }
 
-            function updateCustomer(user, id) {
+            function updateCustomer(customer, id) {
                 console.log('Updating Customer with id '+id);
                 var deferred = $q.defer();
-                $http.put(urls.CUSTOMER_SERVICE_API + id, user)
+                $http.put(urls.CUSTOMER_SERVICE_API + id, customer)
                     .then(
                         function (response) {
                             loadAll();
